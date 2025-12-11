@@ -2,6 +2,7 @@ import './style.css'
 import { useEffect, useState } from 'react'
 import NewTodoForm from './NewTodoForm'
 import { TodoList } from './Todolist'
+import { ShowPercentage } from './ShowPercentage'
 
 export default function App () {
   
@@ -47,10 +48,6 @@ export default function App () {
     setTodos([])
   }
 
-  const doneCount = todos.filter(t => t.completed).length
-  const donePercentage = ((doneCount/todos.length)*100).toFixed(0)
-
-
   return (
     <>
 <NewTodoForm onSubmit={addTodo} />
@@ -59,8 +56,7 @@ export default function App () {
 <button className='delete-all-btn' onClick={deleteAll}>Delete All</button>  
 </div>
 <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
-{/* <h4>You have {((todos.length/12)*100).toFixed(0)}% of the task.</h4> */}
-<h4 >You have of the completed {donePercentage}% of the task.</h4>
+<ShowPercentage todos={todos} />
 </>
 )
 }
