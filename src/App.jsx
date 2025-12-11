@@ -4,11 +4,11 @@ import NewTodoForm from './NewTodoForm'
 import { TodoList } from './Todolist'
 
 export default function App () {
+  
   const [todos, setTodos] = useState(() => {
     const localValue = localStorage.getItem("ITEMS")
     if (localValue === null) return []
     return JSON.parse(localValue)
-
   })
 
 
@@ -42,11 +42,25 @@ export default function App () {
     })
   }
 
+  function deleteAll ()  {
+    localStorage.removeItem(todos)
+    setTodos([])
+  }
+
+  const doneCount = todos.filter(t => t.completed).length
+  const donePercentage = ((doneCount/todos.length)*100).toFixed(0)
+
+
   return (
     <>
 <NewTodoForm onSubmit={addTodo} />
-<h1 className="header">Todo List</h1>  
+<div className='form-column'>
+<h1 className="header" >Todo List </h1>
+<button className='delete-all-btn' onClick={deleteAll}>Delete All</button>  
+</div>
 <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
+{/* <h4>You have {((todos.length/12)*100).toFixed(0)}% of the task.</h4> */}
+<h4 >You have of the completed {donePercentage}% of the task.</h4>
 </>
 )
 }

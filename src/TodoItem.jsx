@@ -1,5 +1,6 @@
 export function TodoItem ({completed, id, title,  toggleTodo, deleteTodo }) {
     return (
+    <>
     <li>
     <label>
         <input
@@ -13,5 +14,6 @@ export function TodoItem ({completed, id, title,  toggleTodo, deleteTodo }) {
     onClick={() => deleteTodo(id)} 
     className='btn btn-danger'>Delete</button>
   </li>
+  </>
     )
 }

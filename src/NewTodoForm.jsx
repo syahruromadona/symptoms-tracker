@@ -9,6 +9,7 @@ export default function NewTodoForm (props) {
     if (newItem === "") return
     props.onSubmit(newItem)
     setNewItem('');
+    console.log(localStorage.getItem("ITEMS"))
   }
     
     

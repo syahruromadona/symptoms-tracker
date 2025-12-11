@@ -23,6 +23,13 @@ body {
   gap: 0.1rem;
 }
 
+.form-column {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+
 .btn {
   background: hsl(200, 100%, 50%, 0.1);
   border: 1px solid hsl(200, 100%, 50%);
@@ -32,6 +39,18 @@ body {
   cursor: pointer;
   outline: none;
   margin-top: 0.5em;
+}
+
+.delete-all-btn {
+  background: hsl(0, 100%, 40%, 0.1);
+  border: 1px solid hsl(0, 100%, 40%);
+  color: hsl(0, 100%, 40%);
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 0.25em;
+  cursor: pointer;
+  outline: none;
+  padding: 0.5em;
 }
 
 .btn:hover,
@@ -65,14 +84,13 @@ body {
 
 .header {
   font-size: 1.5rem;
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
 
 .list {
   margin: 0;
   padding: 0;
-  margin-left: 1rem;
   list-style: none;
 }
 
